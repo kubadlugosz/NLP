@@ -583,4 +583,3 @@ sentiments
 sentiment = {feeling:[sentiments.count(feeling)] for feeling in list(set(sentiments))}
 sentiment = pd.DataFrame.from_dict(sentiment,orient='index',columns=['count'])
 sentiment.plot(kind='bar')
-
