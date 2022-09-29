@@ -1,59 +1,59 @@
 """°°°
 ## Intro to NLTK
 °°°"""
-# |%%--%%| <lS7NksGe21|F6qXgfxzIs>
+# |%%--%%| <DoI1dZEW85|SbMDV3G0Gt>
 
 import nltk 
 #Project Gutenburg - open source database for books and text
 nltk.download('gutenberg') #download gutenburg
 
-# |%%--%%| <F6qXgfxzIs|JfS4fpZJiD>
+# |%%--%%| <SbMDV3G0Gt|gaH9VeFzyr>
 
 nltk.corpus.gutenberg.fileids()
 
-# |%%--%%| <JfS4fpZJiD|W8lOXj6DXr>
+# |%%--%%| <gaH9VeFzyr|CtP4Y6YDPJ>
 
 #Load the book moby dick
 md = nltk.corpus.gutenberg.words('melville-moby_dick.txt')
 
-# |%%--%%| <W8lOXj6DXr|nx8SIfWWyA>
+# |%%--%%| <CtP4Y6YDPJ|ry24BeUcgJ>
 
 md
 
-# |%%--%%| <nx8SIfWWyA|mWIBd1x5x9>
+# |%%--%%| <ry24BeUcgJ|EKohwHuX6i>
 
 md_set =set(md)
 
-# |%%--%%| <mWIBd1x5x9|6op4Y3gTIR>
+# |%%--%%| <EKohwHuX6i|q70WXSlkrL>
 
 len(md_set)
 
-# |%%--%%| <6op4Y3gTIR|qyIbt7kvuB>
+# |%%--%%| <q70WXSlkrL|W15ZKXCBCN>
 
 len(md) / len(md_set)
 
-# |%%--%%| <qyIbt7kvuB|hYmIFieYPH>
+# |%%--%%| <W15ZKXCBCN|m4VHOds1OR>
 
 md_sents = nltk.corpus.gutenberg.sents('melville-moby_dick.txt')
 
-# |%%--%%| <hYmIFieYPH|yF5dSATkst>
+# |%%--%%| <m4VHOds1OR|qc8RLbukjU>
 
 len(md) / len(md_sents)
 
-# |%%--%%| <yF5dSATkst|NI8U7PNpTP>
+# |%%--%%| <qc8RLbukjU|lOK9rht6KF>
 """°°°
 ## Example-Words Per Sentence Trends
 °°°"""
-# |%%--%%| <NI8U7PNpTP|zDXFQQGfmi>
+# |%%--%%| <lOK9rht6KF|CCCN1nptgT>
 
 from nltk.corpus import inaugural
 nltk.download('inaugural')
 
-# |%%--%%| <zDXFQQGfmi|jwS8juoLuB>
+# |%%--%%| <CCCN1nptgT|r3qEjyM5X1>
 
 inaugural.fileids()
 
-# |%%--%%| <jwS8juoLuB|SGR3TBLwk0>
+# |%%--%%| <r3qEjyM5X1|MaAbqX790P>
 
 speeches = inaugural.fileids()
 for speech in speeches:
@@ -63,33 +63,33 @@ for speech in speeches:
     print(len(speech_words) / len((speech_sents)))
     
 
-# |%%--%%| <SGR3TBLwk0|U0SKuCNGzl>
+# |%%--%%| <MaAbqX790P|CgphqiTRiV>
 
 speech_len = [(len(inaugural.words(speech)),speech) for speech in speeches ]
 speech_len
 
-# |%%--%%| <U0SKuCNGzl|fyFbcfLHQl>
+# |%%--%%| <CgphqiTRiV|Z3aswQJu6y>
 
 print(max(speech_len))
 print(min(speech_len))
 
-# |%%--%%| <fyFbcfLHQl|JD5VbxzSH1>
+# |%%--%%| <Z3aswQJu6y|kR5P4YEjjO>
 
 import pandas as pd
 
-# |%%--%%| <JD5VbxzSH1|O9AwYhFfAx>
+# |%%--%%| <kR5P4YEjjO|yBCKQVwWuC>
 
 data = pd.DataFrame([int(speech[:4]), len(inaugural.words(speech))/len(inaugural.sents(speech))] for speech in speeches)
 
-# |%%--%%| <O9AwYhFfAx|IQh68FVOtu>
+# |%%--%%| <yBCKQVwWuC|rtkcwZVCyD>
 
 data.head()
 
-# |%%--%%| <IQh68FVOtu|roBcSKjJ7a>
+# |%%--%%| <rtkcwZVCyD|8fyy0whnjI>
 
 data.columns = ['Year', 'Average WPS']
 
-# |%%--%%| <roBcSKjJ7a|oqX26rpcqd>
+# |%%--%%| <8fyy0whnjI|OO8JzcmzR3>
 
 import matplotlib.pyplot as plt
 data.plot('Year')
